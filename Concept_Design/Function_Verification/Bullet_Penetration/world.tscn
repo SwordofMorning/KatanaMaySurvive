@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh8sio3c1qlp7"]
+
+[ext_resource type="PackedScene" uid="uid://lu0atf3536wj" path="res://player.tscn" id="1_rg34a"]
+[ext_resource type="PackedScene" uid="uid://dya0wqhbinsb2" path="res://enemy.tscn" id="2_e54n1"]
+[ext_resource type="Script" path="res://Label.gd" id="3_cexo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g57o0"]
+size = Vector2(1293, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og0we"]
+size = Vector2(105, 513)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_minlg"]
+size = Vector2(1049, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76brx"]
+size = Vector2(90.5, 448.5)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_rg34a")]
+position = Vector2(256, 192)
+
+[node name="Enemy" parent="." instance=ExtResource("2_e54n1")]
+position = Vector2(696, 440)
+
+[node name="Panel" type="Node2D" parent="."]
+
+[node name="Panel" type="Panel" parent="Panel"]
+offset_left = -40.0
+offset_top = 512.0
+offset_right = 1161.0
+offset_bottom = 620.0
+
+[node name="Panel2" type="Panel" parent="Panel"]
+offset_right = 104.0
+offset_bottom = 512.0
+
+[node name="Panel3" type="Panel" parent="Panel"]
+offset_left = 104.0
+offset_right = 1152.0
+offset_bottom = 64.0
+
+[node name="Panel4" type="Panel" parent="Panel"]
+offset_left = 1064.0
+offset_top = 64.0
+offset_right = 1152.0
+offset_bottom = 512.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(528, 592)
+shape = SubResource("RectangleShape2D_g57o0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(51.5, 255.5)
+shape = SubResource("RectangleShape2D_og0we")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(627.5, 31.5)
+shape = SubResource("RectangleShape2D_minlg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1109.25, 287.75)
+shape = SubResource("RectangleShape2D_76brx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 392.0
+offset_top = 192.0
+offset_right = 432.0
+offset_bottom = 215.0
+script = ExtResource("3_cexo2")
