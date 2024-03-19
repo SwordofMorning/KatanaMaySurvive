@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://difd65f6pwmna"]
+
+[ext_resource type="Texture2D" uid="uid://01ba3dl2nu67" path="res://Resource/frog/idle/frog-idle-1.png" id="1_l6baw"]
+[ext_resource type="Texture2D" uid="uid://rnr7ohahuebn" path="res://Resource/frog/idle/frog-idle-2.png" id="2_sobc1"]
+[ext_resource type="Texture2D" uid="uid://c4hi14a74qhdd" path="res://Resource/frog/idle/frog-idle-3.png" id="3_bkm7q"]
+[ext_resource type="Texture2D" uid="uid://c7jx0q7dojfcg" path="res://Resource/frog/idle/frog-idle-4.png" id="4_lu6sn"]
+[ext_resource type="PackedScene" uid="uid://cnhf4xggwtmt5" path="res://death_effect.tscn" id="5_u5ksg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rm4r7"]
+radius = 11.0454
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d6nax"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l6baw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sobc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bkm7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lu6sn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Frog" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rm4r7")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d6nax")
+animation = &"idle"
+
+[node name="DeathEffect" parent="." instance=ExtResource("5_u5ksg")]

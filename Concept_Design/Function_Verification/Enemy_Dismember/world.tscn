@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5ne4dwjw77ag"]
+
+[ext_resource type="PackedScene" uid="uid://difd65f6pwmna" path="res://frog.tscn" id="1_2quh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sjcs"]
+size = Vector2(1199, 139)
+
+[node name="World" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, 616)
+shape = SubResource("RectangleShape2D_2sjcs")
+
+[node name="Frog" parent="." instance=ExtResource("1_2quh6")]
+position = Vector2(496, 416)

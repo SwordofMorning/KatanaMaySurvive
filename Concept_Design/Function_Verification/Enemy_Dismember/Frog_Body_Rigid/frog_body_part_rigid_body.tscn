@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://v8vwhxpvwxvu"]
+
+[ext_resource type="PackedScene" uid="uid://byx63ro7ljwm7" path="res://Frog_Body_Rigid/frog_body_part_rigid.tscn" id="1_yn5c8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rosks"]
+radius = 7.0
+
+[node name="FrogBodyPart_Rigid_Body" instance=ExtResource("1_yn5c8")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rosks")
+
+[node name="Polygon2D" parent="." index="1"]
+position = Vector2(-16, -19)
+polygon = PackedVector2Array(10.1875, 15.8125, 23.875, 15.9375, 28.125, 14.5, 29.75, 16.9375, 25, 22.9375, 27.25, 22.875, 27.375, 27.5, 5.3125, 27.375, 4.1875, 23.75, 10.1875, 23.8125, 3.4375, 19, 5.5625, 14.625)
+uv = PackedVector2Array(10.1875, 15.8125, 23.875, 15.9375, 28.125, 14.5, 29.75, 16.9375, 25, 22.9375, 27.25, 22.875, 27.375, 27.5, 5.3125, 27.375, 4.1875, 23.75, 10.1875, 23.8125, 3.4375, 19, 5.5625, 14.625)
