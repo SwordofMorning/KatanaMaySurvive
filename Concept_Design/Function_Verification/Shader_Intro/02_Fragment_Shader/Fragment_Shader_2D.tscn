@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://eego0wep11ay"]
+
+[ext_resource type="Shader" uid="uid://cpbg3inoos7f1" path="res://02_Fragment_Shader/visual_shader.tres" id="1_0ywod"]
+[ext_resource type="Texture2D" uid="uid://dah7l782sf0yc" path="res://icon.svg" id="1_ycox8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3l6me"]
+shader = ExtResource("1_0ywod")
+
+[node name="FragmentShader2d" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3l6me")
+position = Vector2(256, 128)
+texture = ExtResource("1_ycox8")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(512, 128)
+texture = ExtResource("1_ycox8")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+offset_left = 816.0
+offset_right = 1114.0
+offset_bottom = 576.0
+color = Color(0.298039, 0.321569, 0.368627, 1)
