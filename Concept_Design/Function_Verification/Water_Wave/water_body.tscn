@@ -1,90 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvl8tqdpq2i7t"]
+[gd_scene load_steps=6 format=3 uid="uid://cvl8tqdpq2i7t"]
 
+[ext_resource type="Script" path="res://water_body.gd" id="1_i1xhp"]
 [ext_resource type="Shader" path="res://water_body.gdshader" id="2_2av5q"]
-
-[sub_resource type="GDScript" id="GDScript_thrs2"]
-script/source = "extends Node2D
-
-@export var k = 0.015
-@export var d = 0.03
-@export var spread = 0.0002
-
-# the spring array
-var springs = []
-# how many times spread in one frame
-var spread_times = 10
-
-@export var distance_between_springs = 32
-@export var spring_nums = 35
-var water_length = distance_between_springs * spring_nums
-@onready var water_spring = preload(\"res://water_spring.tscn\")
-
-# Water Depth
-@export var water_depth = 100
-var target_height = global_position.y
-# to create polygon
-var bottom = target_height + water_depth
-@onready var water_polygon = $Water_Polygon
-
-func _ready():
-	for i in range(spring_nums):
-		var x_pos = distance_between_springs * i
-		var water_spring_node = water_spring.instantiate()
-		add_child(water_spring_node)
-		springs.append(water_spring_node)
-		water_spring_node.Init(x_pos)
-	Splash(18, 5)
-	
-
-func _physics_process(delta):
-	for i in springs:
-		i.Water_Update(k, d)
-		
-	var left_deltas = []
-	var right_deltas = []
-	
-	for i in range(springs.size()):
-		left_deltas.append(0)
-		right_deltas.append(0)
-	
-	for spread_times_idx in range(spread_times):
-		for i in range(springs.size()):
-			if i > 0:
-				left_deltas[i] = spread * (springs[i].height - springs[i-1].height)
-				springs[i-1].velocity += left_deltas[i]
-			if i < springs.size() - 1:
-				right_deltas[i] = spread * (springs[i].height - springs[i+1].height)
-				springs[i+1].velocity += right_deltas[i]
-	Draw_Water_Body()
-
-func Splash(index, speed):
-	if (index >= 0 and index < springs.size()):
-		springs[index].velocity += speed
-
-func Draw_Water_Body():
-	var surface_points = []
-	
-	for i in range(springs.size()):
-		surface_points.append(springs[i].position)
-	
-	var first_idx = 0
-	var last_idx = surface_points.size() - 1
-	
-	var water_polygon_points = surface_points
-	water_polygon_points.append(Vector2(surface_points[last_idx].x, bottom))
-	water_polygon_points.append(Vector2(surface_points[first_idx].x, bottom))
-	
-	water_polygon_points = PackedVector2Array(water_polygon_points)
-	water_polygon.set_polygon(water_polygon_points)
-"
+[ext_resource type="Script" path="res://Water_Border.gd" id="2_wklcc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w131u"]
 shader = ExtResource("2_2av5q")
-shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/tint = Color(0.67451, 0.968627, 1, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_qibtd"]
 
 [node name="Water_Body" type="Node2D"]
-script = SubResource("GDScript_thrs2")
+script = ExtResource("1_i1xhp")
 
 [node name="Water_Polygon" type="Polygon2D" parent="."]
 modulate = Color(0, 0.792157, 0.843137, 1)
 material = SubResource("ShaderMaterial_w131u")
+
+[node name="Water_Border" type="Path2D" parent="."]
+curve = SubResource("Curve2D_qibtd")
+script = ExtResource("2_wklcc")

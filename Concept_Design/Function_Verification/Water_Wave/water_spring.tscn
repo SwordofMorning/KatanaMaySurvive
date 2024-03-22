@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn23ic2w8a3mm"]
+[gd_scene load_steps=4 format=3 uid="uid://cn23ic2w8a3mm"]
 
 [ext_resource type="Texture2D" uid="uid://b850o18gnjju2" path="res://Sprites/joint.png" id="1_c8itx"]
 [ext_resource type="Script" path="res://water_spring.gd" id="1_xdyak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iice1"]
 
 [node name="Water_Spring" type="Node2D"]
 script = ExtResource("1_xdyak")
@@ -9,3 +11,14 @@ script = ExtResource("1_xdyak")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("1_c8itx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iice1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
