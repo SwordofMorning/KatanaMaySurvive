@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4a26u0blo6fp"]
+
+[ext_resource type="PackedScene" uid="uid://cvl8tqdpq2i7t" path="res://water_body.tscn" id="1_0qcvq"]
+[ext_resource type="Texture2D" uid="uid://bop2sj6dy7lm3" path="res://Sprites/scene.png" id="2_qeafk"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Scene" type="Sprite2D" parent="."]
+position = Vector2(517, 392)
+scale = Vector2(3.33125, 4.9375)
+texture = ExtResource("2_qeafk")
+metadata/_edit_lock_ = true
+
+[node name="Water_Body" parent="." instance=ExtResource("1_0qcvq")]
+position = Vector2(-28, 681)
