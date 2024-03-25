@@ -1,0 +1,229 @@
+[gd_scene load_steps=26 format=3 uid="uid://bpaj55p4caxum"]
+
+[ext_resource type="Script" path="res://Character/Dragon/Dragon.gd" id="1_nfv8c"]
+[ext_resource type="Texture2D" uid="uid://cocag4m3oqbaf" path="res://Sprite/120289.png" id="1_p7ykj"]
+[ext_resource type="PackedScene" uid="uid://kcnwtselv7a6" path="res://Weapon/Slayer.tscn" id="2_pj0ud"]
+[ext_resource type="PackedScene" uid="uid://dou52xbd2100h" path="res://Weapon/Moonlight.tscn" id="4_13dr7"]
+[ext_resource type="PackedScene" uid="uid://ckf2rfi0ddev3" path="res://Weapon/Greatsword.tscn" id="5_ucdfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ewe"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(43, 497, 42, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjmv4"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(85, 497, 42, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf085"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(127, 497, 42, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev27e"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(169, 497, 42, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21d0o"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(43, 544, 42, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wirnb"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(43, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0ja8"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(86, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rik1i"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(129, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jo87"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(172, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c73d"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(215, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwfvp"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(258, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkcy5"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(301, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xadnm"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(344, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h6u4"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(387, 557, 43, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5f8u"]
+atlas = ExtResource("1_p7ykj")
+region = Rect2(430, 557, 43, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqv2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ewe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjmv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf085")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev27e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21d0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf085")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjmv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ewe")
+}],
+"loop": true,
+"name": &"atk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wirnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0ja8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rik1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jo87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c73d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwfvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkcy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xadnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h6u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5f8u")
+}],
+"loop": true,
+"name": &"sneak",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_buiwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_etywq"]
+resource_name = "Atk"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atk"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1br2"]
+_data = {
+"RESET": SubResource("Animation_buiwf"),
+"atk": SubResource("Animation_etywq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayvm5"]
+size = Vector2(32, 40)
+
+[node name="Dragon" type="CharacterBody2D"]
+script = ExtResource("1_nfv8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kqv2k")
+animation = &"atk"
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h1br2")
+}
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Slayer" parent="Weapon" instance=ExtResource("2_pj0ud")]
+
+[node name="Moonlight" parent="Weapon" instance=ExtResource("4_13dr7")]
+visible = false
+
+[node name="Greatsword" parent="Weapon" instance=ExtResource("5_ucdfh")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 3)
+shape = SubResource("RectangleShape2D_ayvm5")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckf2rfi0ddev3"]
+
+[ext_resource type="PackedScene" uid="uid://dvpsmh30wq787" path="res://Weapon/Abstract_Gs.tscn" id="1_ecwg5"]
+[ext_resource type="Texture2D" uid="uid://d1flgkqpwbtbm" path="res://Sprite/Greatsword_01.png" id="2_u4oeg"]
+
+[node name="Greatsword" instance=ExtResource("1_ecwg5")]
+
+[node name="Sprite2D" parent="Weapon" index="0"]
+texture = ExtResource("2_u4oeg")

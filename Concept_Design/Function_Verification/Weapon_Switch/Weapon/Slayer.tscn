@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://kcnwtselv7a6"]
+
+[ext_resource type="PackedScene" uid="uid://dvpsmh30wq787" path="res://Weapon/Abstract_Gs.tscn" id="1_vd86i"]
+[ext_resource type="Texture2D" uid="uid://dowj3k1ub4wbb" path="res://Sprite/Slayer.png" id="2_gtvwd"]
+
+[node name="Slayer" instance=ExtResource("1_vd86i")]
+
+[node name="Sprite2D" parent="Weapon" index="0"]
+position = Vector2(-20, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gtvwd")

@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvpsmh30wq787"]
+
+[ext_resource type="Texture2D" uid="uid://v1nqli348s7m" path="res://Sprite/Moonlight.png" id="1_qux0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nudf"]
+size = Vector2(8.75656, 39.5426)
+
+[sub_resource type="Animation" id="Animation_lnajj"]
+resource_name = "atk"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, -7), Vector2(-34, 21), Vector2(60, 3), Vector2(50, -23), Vector2(60, 3), Vector2(-34, 21), Vector2(-50, -7), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.26893, 1.74533, -1.0472, -1.74533, -1.0472, 1.74533, 2.26893, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_udutf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86ici"]
+_data = {
+"RESET": SubResource("Animation_udutf"),
+"atk": SubResource("Animation_lnajj")
+}
+
+[node name="AbstractGs" type="Node2D"]
+
+[node name="Moonlight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-22.5372, -28.8377)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_qux0k")
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+position = Vector2(-20, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="Weapon_Collision_Area" type="Area2D" parent="Weapon"]
+position = Vector2(-20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Weapon_Collision_Area"]
+shape = SubResource("RectangleShape2D_2nudf")
+debug_color = Color(0, 0.619608, 0.556863, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_86ici")
+}

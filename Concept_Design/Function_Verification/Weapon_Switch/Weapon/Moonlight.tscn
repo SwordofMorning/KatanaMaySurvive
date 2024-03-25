@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dou52xbd2100h"]
+
+[ext_resource type="PackedScene" uid="uid://dvpsmh30wq787" path="res://Weapon/Abstract_Gs.tscn" id="1_68p3b"]
+[ext_resource type="Texture2D" uid="uid://v1nqli348s7m" path="res://Sprite/Moonlight.png" id="2_xdssr"]
+
+[node name="Moonlight" instance=ExtResource("1_68p3b")]
+
+[node name="Sprite2D" parent="Weapon" index="0"]
+position = Vector2(-18.3134, -8.23464)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xdssr")
